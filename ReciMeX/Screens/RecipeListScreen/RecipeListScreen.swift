@@ -8,11 +8,31 @@
 import SwiftUI
 
 struct RecipeListScreen: View {
+  
+  @StateObject private var vm: RecipeListViewModel = RecipeListViewModel()
+  
+  private let columns = [
+    GridItem(.flexible(), spacing: 20, alignment: .center),
+    GridItem(.flexible(), spacing: 20, alignment: .center),
+  ]
+  
   var body: some View {
-    VStack {
-      NavigationLink("Move", value: Screen.extendRecipe(id: ""))
+    ScrollView {
+      LazyVGrid(columns: columns, spacing: 20) {
+        ForEach(vm.recipes) { recipe in
+          NavigationLink(value: Screen.extendRecipe(recipe: recipe)) {
+            RecipeTile(recipe: recipe)
+          }
+          .buttonStyle(PlainButtonStyle())
+        }
+      }
+      .padding(.horizontal, 20)
+      .padding(.top, 16)
     }
-      .navigationTitle("Recipe List")
+    .onAppear {
+      vm.fetchData()
+    }
+    .navigationTitle("Recipe List")
   }
 }
 

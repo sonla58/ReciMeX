@@ -9,7 +9,7 @@ import SwiftUI
 
 enum Screen: Hashable {
   case listRecipe
-  case extendRecipe(id: String)
+  case extendRecipe(recipe: Recipe)
 }
 
 struct RootView: View {
@@ -20,8 +20,8 @@ struct RootView: View {
           switch screen {
           case .listRecipe:
             RecipeListScreen()
-          case .extendRecipe(_):
-            RecipeExtendedScreen()
+          case .extendRecipe(let recipe):
+            RecipeExtendedScreen(recipe: recipe)
           }
         }
     }

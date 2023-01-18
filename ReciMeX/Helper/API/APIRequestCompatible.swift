@@ -47,3 +47,29 @@ protocol APIRequestCompatible {
   var cachePolicy: URLRequest.CachePolicy { get }
   var timeout: TimeInterval { get }
 }
+
+extension APIRequestCompatible {
+  func asRequest() throws -> URLRequest {
+    // Crete url component include query params
+    let absUrl = try url.asURL()
+    
+    // Create URLRequest
+    var req = URLRequest(url: absUrl, cachePolicy: cachePolicy, timeoutInterval: timeout)
+    
+    /// add HTTP method
+    req.httpMethod = method.rawValue
+    
+    /// add HTTP header
+    for key in (headers.headers).keys {
+      req.setValue(headers.headers[key] ?? "", forHTTPHeaderField: key)
+    }
+    
+    /// TODO: - Handle body
+    
+    return req
+  }
+  
+  func use<ResponseAdapter: APIResponseAdapter>(provider: NetworkProviderCompatible, responseAdapter: ResponseAdapter) -> APIAssemble<ResponseAdapter> {
+    return APIAssemble(provider: provider, request: self, responseAdapter: responseAdapter)
+  }
+}

@@ -22,6 +22,16 @@
 		AC220603297843C40076D462 /* DefaultDIInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC220602297843C40076D462 /* DefaultDIInjector.swift */; };
 		AC2206082978454C0076D462 /* RecipeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206072978454C0076D462 /* RecipeListScreen.swift */; };
 		AC22060A2978457B0076D462 /* RecipeExtendedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */; };
+		AC22061229784DA00076D462 /* ReciMeAPIBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22061129784DA00076D462 /* ReciMeAPIBuilder.swift */; };
+		AC220615297852D10076D462 /* RecipeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC220614297852D10076D462 /* RecipeRepository.swift */; };
+		AC2206172978537B0076D462 /* RecipeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206162978537B0076D462 /* RecipeService.swift */; };
+		AC220619297855120076D462 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC220618297855120076D462 /* JSONHelper.swift */; };
+		AC22061C297856990076D462 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22061B297856990076D462 /* Recipe.swift */; };
+		AC22061E297856C50076D462 /* RecipeDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22061D297856C50076D462 /* RecipeDetail.swift */; };
+		AC220620297856D40076D462 /* RecipeIngredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22061F297856D40076D462 /* RecipeIngredients.swift */; };
+		AC22062229785BF20076D462 /* RecipeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22062129785BF20076D462 /* RecipeListViewModel.swift */; };
+		AC22062529785ED30076D462 /* RecipeTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC22062429785ED30076D462 /* RecipeTile.swift */; };
+		AC2206292978732C0076D462 /* RecipeExtendedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206282978732C0076D462 /* RecipeExtendedViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +52,16 @@
 		AC2206072978454C0076D462 /* RecipeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListScreen.swift; sourceTree = "<group>"; };
 		AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExtendedScreen.swift; sourceTree = "<group>"; };
 		AC22060B297849770076D462 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AC22061129784DA00076D462 /* ReciMeAPIBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciMeAPIBuilder.swift; sourceTree = "<group>"; };
+		AC220614297852D10076D462 /* RecipeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRepository.swift; sourceTree = "<group>"; };
+		AC2206162978537B0076D462 /* RecipeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeService.swift; sourceTree = "<group>"; };
+		AC220618297855120076D462 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		AC22061B297856990076D462 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		AC22061D297856C50076D462 /* RecipeDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetail.swift; sourceTree = "<group>"; };
+		AC22061F297856D40076D462 /* RecipeIngredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeIngredients.swift; sourceTree = "<group>"; };
+		AC22062129785BF20076D462 /* RecipeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListViewModel.swift; sourceTree = "<group>"; };
+		AC22062429785ED30076D462 /* RecipeTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTile.swift; sourceTree = "<group>"; };
+		AC2206282978732C0076D462 /* RecipeExtendedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExtendedViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +95,10 @@
 		AC2205DF297812540076D462 /* ReciMeX */ = {
 			isa = PBXGroup;
 			children = (
+				AC22062329785E8D0076D462 /* Views */,
+				AC22061A2978568B0076D462 /* Entities */,
+				AC22060D29784CE90076D462 /* Services */,
+				AC22060C29784CB90076D462 /* Repositories */,
 				AC220604297844C30076D462 /* Screens */,
 				AC2205EF29783F310076D462 /* Helper */,
 				AC2205EE297812750076D462 /* App */,
@@ -107,6 +131,7 @@
 			children = (
 				AC2205FF2978433F0076D462 /* DI */,
 				AC2205F029783F3C0076D462 /* API */,
+				AC220618297855120076D462 /* JSONHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -146,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				AC2206072978454C0076D462 /* RecipeListScreen.swift */,
+				AC22062129785BF20076D462 /* RecipeListViewModel.swift */,
 			);
 			path = RecipeListScreen;
 			sourceTree = "<group>";
@@ -154,8 +180,60 @@
 			isa = PBXGroup;
 			children = (
 				AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */,
+				AC2206282978732C0076D462 /* RecipeExtendedViewModel.swift */,
 			);
 			path = RecipeExtendedScreen;
+			sourceTree = "<group>";
+		};
+		AC22060C29784CB90076D462 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				AC220613297852B80076D462 /* Recipe */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		AC22060D29784CE90076D462 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AC22061029784D830076D462 /* ReciMeAPIs */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AC22061029784D830076D462 /* ReciMeAPIs */ = {
+			isa = PBXGroup;
+			children = (
+				AC22061129784DA00076D462 /* ReciMeAPIBuilder.swift */,
+			);
+			path = ReciMeAPIs;
+			sourceTree = "<group>";
+		};
+		AC220613297852B80076D462 /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				AC220614297852D10076D462 /* RecipeRepository.swift */,
+				AC2206162978537B0076D462 /* RecipeService.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		AC22061A2978568B0076D462 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				AC22061B297856990076D462 /* Recipe.swift */,
+				AC22061D297856C50076D462 /* RecipeDetail.swift */,
+				AC22061F297856D40076D462 /* RecipeIngredients.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		AC22062329785E8D0076D462 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AC22062429785ED30076D462 /* RecipeTile.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,15 +310,25 @@
 				AC22060A2978457B0076D462 /* RecipeExtendedScreen.swift in Sources */,
 				AC2205F62978415A0076D462 /* APIHeaderCompatible.swift in Sources */,
 				AC2205F429783FD90076D462 /* APIRequestCompatible.swift in Sources */,
+				AC220615297852D10076D462 /* RecipeRepository.swift in Sources */,
 				AC2205F8297841910076D462 /* APIParameterCompatible.swift in Sources */,
+				AC220620297856D40076D462 /* RecipeIngredients.swift in Sources */,
 				AC2205F229783F830076D462 /* NetworkProviderCompatible.swift in Sources */,
+				AC2206172978537B0076D462 /* RecipeService.swift in Sources */,
 				AC2205E3297812540076D462 /* RootView.swift in Sources */,
+				AC2206292978732C0076D462 /* RecipeExtendedViewModel.swift in Sources */,
+				AC22061E297856C50076D462 /* RecipeDetail.swift in Sources */,
 				AC2205FC2978427C0076D462 /* APIResponseAdapter.swift in Sources */,
 				AC2205FA297841F10076D462 /* APIBodyCompatible.swift in Sources */,
+				AC22062529785ED30076D462 /* RecipeTile.swift in Sources */,
 				AC220603297843C40076D462 /* DefaultDIInjector.swift in Sources */,
+				AC22062229785BF20076D462 /* RecipeListViewModel.swift in Sources */,
 				AC2206082978454C0076D462 /* RecipeListScreen.swift in Sources */,
+				AC22061229784DA00076D462 /* ReciMeAPIBuilder.swift in Sources */,
 				AC2206012978436B0076D462 /* Injectable.swift in Sources */,
+				AC22061C297856990076D462 /* Recipe.swift in Sources */,
 				AC2205E1297812540076D462 /* ReciMeXApp.swift in Sources */,
+				AC220619297855120076D462 /* JSONHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

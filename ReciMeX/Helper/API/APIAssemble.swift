@@ -26,13 +26,4 @@ struct APIAssemble<ResponseAdapter: APIResponseAdapter> {
             }
         }
     }
-    
-    @discardableResult
-    func executeUpload(completed: @escaping (_ result: Result<ResponseAdapter.Value, Error>)->Void) -> RequestCancelable {
-        networkProvider.upload(request: request) { (urlRequest, urlResponse, result) in
-            DispatchQueue.main.async {
-                completed(responseAdapter.toResponse(request: urlRequest, response: urlResponse, result: result))
-            }
-        }
-    }
 }

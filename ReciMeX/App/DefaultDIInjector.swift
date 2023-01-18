@@ -13,6 +13,8 @@ protocol DIInjector {
 
 struct DefaultDIInjector: DIInjector {
   func register() {
-    
+    DIContainer.register(RecipeRepository.self) {
+      RecipeService()
+    }
   }
 }

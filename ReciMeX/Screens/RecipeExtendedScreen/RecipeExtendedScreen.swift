@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct RecipeExtendedScreen: View {
+  
+  let recipe: Recipe
+  
+  @StateObject private var vm: RecipeExtendedViewModel = RecipeExtendedViewModel()
+  
+  init(recipe: Recipe) {
+    self.recipe = recipe
+  }
+  
   var body: some View {
-    Text("Recipe Extended Screen")
+    Group {
+      if vm.ingredients != nil && vm.detailData != nil {
+        HStack {
+          
+        }
+      }
+    }
+      .onAppear {
+        vm.fetchData(recipeId: recipe.id)
+      }
+      .navigationTitle(recipe.title)
   }
 }
 
 struct RecipeExtendedScreen_Previews: PreviewProvider {
   static var previews: some View {
-    RecipeExtendedScreen()
+    RecipeExtendedScreen(recipe: Recipe(id: "", title: "Test", imageUrl: "", cookTime: 5, prepTime: 5, numSaves: 100))
   }
 }

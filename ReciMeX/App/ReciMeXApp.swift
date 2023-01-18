@@ -12,12 +12,13 @@ struct ReciMeXApp: App {
   
   internal var di: DIInjector = DefaultDIInjector()
   
+  init() {
+    di.register()
+  }
+  
   var body: some Scene {
     WindowGroup {
       RootView()
-        .onAppear {
-          di.register()
-        }
     }
   }
 }
