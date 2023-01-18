@@ -17,9 +17,15 @@ struct RecipeExtendedScreen: View {
     self.recipe = recipe
   }
   
+  private func getQuantityOfGredient(originalQuantity: Double) -> Double {
+    guard let data = vm.detailData else { return 0.0 }
+    let factor = Double(vm.serves) / Double(data.servingSize)
+    return originalQuantity * factor
+  }
+  
   var body: some View {
     ScrollView {
-      if vm.ingredients != nil && vm.detailData != nil {
+      if vm.detailData != nil {
         VStack(alignment: .leading) {
           
           // MARK: Creator view
@@ -60,7 +66,7 @@ struct RecipeExtendedScreen: View {
           Spacer(minLength: 20)
           
           Text("About")
-            .font(.headline)
+            .font(.title2)
           Text(vm.detailData?.description ?? "")
             .font(.body)
           
@@ -69,7 +75,51 @@ struct RecipeExtendedScreen: View {
           Spacer(minLength: 20)
           
           Text("Ingredient")
-            .font(.headline)
+            .font(.title2)
+          
+          Spacer(minLength: 16)
+          
+          HStack {
+            Button {
+              vm.minusServes()
+            } label: {
+              Image(systemName: "minus.circle")
+            }
+            
+            Text("\(vm.serves) serves")
+            
+            Button {
+              vm.plusServes()
+            } label: {
+              Image(systemName: "plus.circle")
+            }
+          }
+          
+          ForEach(vm.ingredients) { ingredientType in
+            switch ingredientType {
+            case .heading(let heading):
+              Text(heading)
+                .font(.headline)
+                .padding(.top, 12)
+            case .ingredient(let data):
+              HStack {
+                // Placeholder Imgae
+                Color.gray
+                  .frame(width: 30, height: 30)
+                  .clipShape(Circle())
+                
+                VStack(alignment: .leading) {
+                  if data.rawProduct != nil {
+                    Text("\(String(format: "%.1f", getQuantityOfGredient(originalQuantity: data.quantity ?? 0.0))) \(data.unit ?? "") \(data.productModifier ?? "") \(data.rawProduct ?? "")")
+                    Text(data.preparationNotes ?? "")
+                      .font(.footnote)
+                  } else {
+                    Text(data.rawText ?? "")
+                  }
+                }
+              }
+            }
+          }
           
         } //:VStack
         .padding(.horizontal, 20)

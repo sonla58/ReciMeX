@@ -38,10 +38,10 @@ struct RecipeService: RecipeRepository {
     })
   }
   
-  func getRecipeIngredients(byRecipe id: String) async throws -> RecipeIngredients {
+  func getRecipeIngredients(byRecipe id: String) async throws -> [RecipeIngredientsType] {
     try await withCheckedThrowingContinuation({ continuation in
       ReciMeAPIBuilder(method: .get, path: "recipe/\(id)/ingredients")
-        .use(provider: BuildinIOSProvider(), responseAdapter: JSONResponse<RecipeIngredients>())
+        .use(provider: BuildinIOSProvider(), responseAdapter: JSONResponse<[RecipeIngredientsType]>())
         .execute { result in
           switch result {
           case .success(let data):
