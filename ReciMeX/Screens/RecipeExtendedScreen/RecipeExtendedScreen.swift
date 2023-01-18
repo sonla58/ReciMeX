@@ -18,17 +18,67 @@ struct RecipeExtendedScreen: View {
   }
   
   var body: some View {
-    Group {
+    ScrollView {
       if vm.ingredients != nil && vm.detailData != nil {
-        HStack {
+        VStack(alignment: .leading) {
           
-        }
+          // MARK: Creator view
+          
+          HStack {
+            AsyncImage(url: URL(string: vm.detailData!.creator.profileImageUrl ?? "")) { image in
+              image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 30, height: 30)
+                .clipShape(Circle())
+            } placeholder: {
+              Color.gray
+                .frame(width: 30, height: 30)
+                .clipShape(Circle())
+            }
+            
+            Text("by \(vm.detailData!.creator.username)")
+            
+            Spacer()
+          } //:HStack
+          .padding(.top, 20)
+          
+          // MARK: Image
+          
+          AsyncImage(url: URL(string: vm.detailData?.imageUrl ?? ""), content: { image in
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .clipped()
+          }, placeholder: {
+            Color.gray
+              .frame(height: 100)
+          })
+          
+          // MARK: Description
+          
+          Spacer(minLength: 20)
+          
+          Text("About")
+            .font(.headline)
+          Text(vm.detailData?.description ?? "")
+            .font(.body)
+          
+          // MARK: Ingredient
+          
+          Spacer(minLength: 20)
+          
+          Text("Ingredient")
+            .font(.headline)
+          
+        } //:VStack
+        .padding(.horizontal, 20)
       }
     }
-      .onAppear {
-        vm.fetchData(recipeId: recipe.id)
-      }
-      .navigationTitle(recipe.title)
+    .onAppear {
+      vm.fetchData(recipeId: recipe.id)
+    }
+    .navigationTitle(recipe.title)
   }
 }
 

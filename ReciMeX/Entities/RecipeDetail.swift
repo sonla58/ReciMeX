@@ -10,7 +10,7 @@ import Foundation
 struct RecipeDetail: Codable {
   let id: String
   let title: String
-  let description: String
+  let description: String?
   let imageUrl: String
   let creator: Creator
   let cookTime: Int?
