@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol DIInjector {
+  func register()
+}
+
+struct DefaultDIInjector: DIInjector {
+  func register() {
+    
+  }
+}

@@ -8,17 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		AC2205E1297812540076D462 /* ReciMeXApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205E0297812540076D462 /* ReciMeXApp.swift */; };
-		AC2205E3297812540076D462 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205E2297812540076D462 /* ContentView.swift */; };
+		AC2205E3297812540076D462 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205E2297812540076D462 /* RootView.swift */; };
 		AC2205E5297812550076D462 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2205E4297812550076D462 /* Assets.xcassets */; };
 		AC2205E8297812550076D462 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC2205E7297812550076D462 /* Preview Assets.xcassets */; };
+		AC2205F229783F830076D462 /* NetworkProviderCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205F129783F830076D462 /* NetworkProviderCompatible.swift */; };
+		AC2205F429783FD90076D462 /* APIRequestCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205F329783FD80076D462 /* APIRequestCompatible.swift */; };
+		AC2205F62978415A0076D462 /* APIHeaderCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205F52978415A0076D462 /* APIHeaderCompatible.swift */; };
+		AC2205F8297841910076D462 /* APIParameterCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205F7297841910076D462 /* APIParameterCompatible.swift */; };
+		AC2205FA297841F10076D462 /* APIBodyCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205F9297841F10076D462 /* APIBodyCompatible.swift */; };
+		AC2205FC2978427C0076D462 /* APIResponseAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205FB2978427C0076D462 /* APIResponseAdapter.swift */; };
+		AC2205FE297842EE0076D462 /* APIAssemble.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2205FD297842ED0076D462 /* APIAssemble.swift */; };
+		AC2206012978436B0076D462 /* Injectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206002978436B0076D462 /* Injectable.swift */; };
+		AC220603297843C40076D462 /* DefaultDIInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC220602297843C40076D462 /* DefaultDIInjector.swift */; };
+		AC2206082978454C0076D462 /* RecipeListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206072978454C0076D462 /* RecipeListScreen.swift */; };
+		AC22060A2978457B0076D462 /* RecipeExtendedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		AC2205DD297812540076D462 /* ReciMeX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReciMeX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC2205E0297812540076D462 /* ReciMeXApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReciMeXApp.swift; sourceTree = "<group>"; };
-		AC2205E2297812540076D462 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		AC2205E2297812540076D462 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		AC2205E4297812550076D462 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC2205E7297812550076D462 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AC2205F129783F830076D462 /* NetworkProviderCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProviderCompatible.swift; sourceTree = "<group>"; };
+		AC2205F329783FD80076D462 /* APIRequestCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRequestCompatible.swift; sourceTree = "<group>"; };
+		AC2205F52978415A0076D462 /* APIHeaderCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIHeaderCompatible.swift; sourceTree = "<group>"; };
+		AC2205F7297841910076D462 /* APIParameterCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIParameterCompatible.swift; sourceTree = "<group>"; };
+		AC2205F9297841F10076D462 /* APIBodyCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIBodyCompatible.swift; sourceTree = "<group>"; };
+		AC2205FB2978427C0076D462 /* APIResponseAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIResponseAdapter.swift; sourceTree = "<group>"; };
+		AC2205FD297842ED0076D462 /* APIAssemble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIAssemble.swift; sourceTree = "<group>"; };
+		AC2206002978436B0076D462 /* Injectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injectable.swift; sourceTree = "<group>"; };
+		AC220602297843C40076D462 /* DefaultDIInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDIInjector.swift; sourceTree = "<group>"; };
+		AC2206072978454C0076D462 /* RecipeListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeListScreen.swift; sourceTree = "<group>"; };
+		AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeExtendedScreen.swift; sourceTree = "<group>"; };
+		AC22060B297849770076D462 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +58,7 @@
 		AC2205D4297812540076D462 = {
 			isa = PBXGroup;
 			children = (
+				AC22060B297849770076D462 /* README.md */,
 				AC2205DF297812540076D462 /* ReciMeX */,
 				AC2205DE297812540076D462 /* Products */,
 			);
@@ -51,8 +75,9 @@
 		AC2205DF297812540076D462 /* ReciMeX */ = {
 			isa = PBXGroup;
 			children = (
-				AC2205E0297812540076D462 /* ReciMeXApp.swift */,
-				AC2205E2297812540076D462 /* ContentView.swift */,
+				AC220604297844C30076D462 /* Screens */,
+				AC2205EF29783F310076D462 /* Helper */,
+				AC2205EE297812750076D462 /* App */,
 				AC2205E4297812550076D462 /* Assets.xcassets */,
 				AC2205E6297812550076D462 /* Preview Content */,
 			);
@@ -65,6 +90,72 @@
 				AC2205E7297812550076D462 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AC2205EE297812750076D462 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AC2205E0297812540076D462 /* ReciMeXApp.swift */,
+				AC220602297843C40076D462 /* DefaultDIInjector.swift */,
+				AC2205E2297812540076D462 /* RootView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AC2205EF29783F310076D462 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				AC2205FF2978433F0076D462 /* DI */,
+				AC2205F029783F3C0076D462 /* API */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		AC2205F029783F3C0076D462 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AC2205F129783F830076D462 /* NetworkProviderCompatible.swift */,
+				AC2205F329783FD80076D462 /* APIRequestCompatible.swift */,
+				AC2205F52978415A0076D462 /* APIHeaderCompatible.swift */,
+				AC2205F7297841910076D462 /* APIParameterCompatible.swift */,
+				AC2205F9297841F10076D462 /* APIBodyCompatible.swift */,
+				AC2205FB2978427C0076D462 /* APIResponseAdapter.swift */,
+				AC2205FD297842ED0076D462 /* APIAssemble.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		AC2205FF2978433F0076D462 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				AC2206002978436B0076D462 /* Injectable.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		AC220604297844C30076D462 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				AC220606297845190076D462 /* RecipeExtendedScreen */,
+				AC220605297844EA0076D462 /* RecipeListScreen */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		AC220605297844EA0076D462 /* RecipeListScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AC2206072978454C0076D462 /* RecipeListScreen.swift */,
+			);
+			path = RecipeListScreen;
+			sourceTree = "<group>";
+		};
+		AC220606297845190076D462 /* RecipeExtendedScreen */ = {
+			isa = PBXGroup;
+			children = (
+				AC2206092978457B0076D462 /* RecipeExtendedScreen.swift */,
+			);
+			path = RecipeExtendedScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +228,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC2205E3297812540076D462 /* ContentView.swift in Sources */,
+				AC2205FE297842EE0076D462 /* APIAssemble.swift in Sources */,
+				AC22060A2978457B0076D462 /* RecipeExtendedScreen.swift in Sources */,
+				AC2205F62978415A0076D462 /* APIHeaderCompatible.swift in Sources */,
+				AC2205F429783FD90076D462 /* APIRequestCompatible.swift in Sources */,
+				AC2205F8297841910076D462 /* APIParameterCompatible.swift in Sources */,
+				AC2205F229783F830076D462 /* NetworkProviderCompatible.swift in Sources */,
+				AC2205E3297812540076D462 /* RootView.swift in Sources */,
+				AC2205FC2978427C0076D462 /* APIResponseAdapter.swift in Sources */,
+				AC2205FA297841F10076D462 /* APIBodyCompatible.swift in Sources */,
+				AC220603297843C40076D462 /* DefaultDIInjector.swift in Sources */,
+				AC2206082978454C0076D462 /* RecipeListScreen.swift in Sources */,
+				AC2206012978436B0076D462 /* Injectable.swift in Sources */,
 				AC2205E1297812540076D462 /* ReciMeXApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

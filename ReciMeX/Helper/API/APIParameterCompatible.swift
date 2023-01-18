@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct KeyAnyValue {
+  var key: String
+  var value: Any
+}
+
+protocol APIParameterCompatible {
+  var parammeters: [KeyAnyValue] { get }
+}

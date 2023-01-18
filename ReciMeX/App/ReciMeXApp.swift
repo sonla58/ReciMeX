@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct ReciMeXApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
+  
+  internal var di: DIInjector = DefaultDIInjector()
+  
+  var body: some Scene {
+    WindowGroup {
+      RootView()
+        .onAppear {
+          di.register()
         }
     }
+  }
 }

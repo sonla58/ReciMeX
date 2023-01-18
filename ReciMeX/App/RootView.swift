@@ -7,20 +7,29 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
-        }
-        .padding()
-    }
+enum Screen: Hashable {
+  case listRecipe
+  case extendRecipe(id: String)
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
+struct RootView: View {
+  var body: some View {
+    NavigationStack {
+      RecipeListScreen()
+        .navigationDestination(for: Screen.self) { screen in
+          switch screen {
+          case .listRecipe:
+            RecipeListScreen()
+          case .extendRecipe(_):
+            RecipeExtendedScreen()
+          }
+        }
     }
+  }
+}
+
+struct RootView_Previews: PreviewProvider {
+  static var previews: some View {
+    RootView()
+  }
 }

@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+protocol APIBodyCompatible {
+  func asHTTPBody() throws -> APIBodyType
+}
+
+enum APIBodyType {
+//  case single(Data)
+//  case stream(InputStream)
+//  case formData(MultipartFormData)
+}

@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct RecipeListScreen: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+  var body: some View {
+    VStack {
+      NavigationLink("Move", value: Screen.extendRecipe(id: ""))
     }
+      .navigationTitle("Recipe List")
+  }
 }
 
 struct RecipeListScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeListScreen()
-    }
+  static var previews: some View {
+    RecipeListScreen()
+  }
 }
