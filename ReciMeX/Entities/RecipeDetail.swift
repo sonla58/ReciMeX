@@ -16,6 +16,8 @@ struct RecipeDetail: Codable {
   let cookTime: Int?
   let prepTime: Int?
   let servingSize: Int
+  let method: String
+  let tags: [String]
 }
 
 struct Creator: Codable {

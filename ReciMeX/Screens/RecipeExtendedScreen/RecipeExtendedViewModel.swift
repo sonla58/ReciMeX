@@ -14,13 +14,23 @@ class RecipeExtendedViewModel: ObservableObject {
   @Published var detailData: RecipeDetail?
   @Published var ingredients: [RecipeIngredientsType] = []
   @Published var serves: Int = 0
+  @Published var methods: [String] = []
+  @Published var methodHeading: String = ""
   
   func fetchData(recipeId: String) {
     Task {
       do {
         detailData = try await service.getRecipeDetail(byRecipe: recipeId)
-        ingredients = try await service.getRecipeIngredients(byRecipe: recipeId)
         serves = detailData!.servingSize
+        
+        var methodComponents = detailData!.method.components(separatedBy: .newlines)
+        if methodComponents.first?.hasPrefix("##") == true {
+          methodHeading = methodComponents.first!.replacingOccurrences(of: "##", with: "")
+          methodComponents.removeFirst()
+        }
+        methods = methodComponents
+        
+        ingredients = try await service.getRecipeIngredients(byRecipe: recipeId)
       } catch {
         // TODO: - Handle error
         print(error)

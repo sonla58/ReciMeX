@@ -23,31 +23,110 @@ struct RecipeExtendedScreen: View {
     return originalQuantity * factor
   }
   
+  var creatorView: some View {
+    HStack {
+      AsyncImage(url: URL(string: vm.detailData!.creator.profileImageUrl ?? "")) { image in
+        image
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .frame(width: 30, height: 30)
+          .clipShape(Circle())
+      } placeholder: {
+        Color.gray
+          .frame(width: 30, height: 30)
+          .clipShape(Circle())
+      }
+      
+      Text("by \(vm.detailData!.creator.username)")
+      
+      Spacer()
+    } //:HStack
+    .padding(.top, 20)
+  }
+  
+  var descriptionView: some View {
+    Group {
+      Spacer(minLength: 20)
+      
+      Text("About")
+        .font(.title2)
+      Text(vm.detailData?.description ?? "")
+        .font(.body)
+    }
+  }
+  
+  var ingredientSectionView: some View {
+    Group {
+      Spacer(minLength: 20)
+      
+      Text("Ingredient")
+        .font(.title2)
+      
+      Spacer(minLength: 16)
+      
+      HStack {
+        Button {
+          vm.minusServes()
+        } label: {
+          Image(systemName: "minus.circle")
+        }
+        
+        Text("\(vm.serves) serves")
+        
+        Button {
+          vm.plusServes()
+        } label: {
+          Image(systemName: "plus.circle")
+        }
+      }
+      
+      ForEach(vm.ingredients) { ingredientType in
+        switch ingredientType {
+        case .heading(let heading):
+          Text(heading)
+            .font(.headline)
+            .padding(.top, 12)
+        case .ingredient(let data):
+          HStack {
+            // Placeholder Imgae
+            Color.gray
+              .frame(width: 30, height: 30)
+              .clipShape(Circle())
+            
+            VStack(alignment: .leading) {
+              if data.rawProduct != nil {
+                Text("\(String(format: "%.1f", getQuantityOfGredient(originalQuantity: data.quantity ?? 0.0))) \(data.unit ?? "") \(data.productModifier ?? "") \(data.rawProduct ?? "")")
+                Text(data.preparationNotes ?? "")
+                  .font(.footnote)
+              } else {
+                Text(data.rawText ?? "")
+              }
+            }
+          }
+        }
+      } //:ForEach
+    }
+  }
+  
+  var tagSection: some View {
+    Group {
+      Spacer(minLength: 20)
+      
+      Text("Tags")
+        .font(.title2)
+      
+      // TODO: Tag view
+    }
+  }
+  
   var body: some View {
-    ScrollView {
+    ScrollView(.vertical) {
       if vm.detailData != nil {
         VStack(alignment: .leading) {
           
           // MARK: Creator view
           
-          HStack {
-            AsyncImage(url: URL(string: vm.detailData!.creator.profileImageUrl ?? "")) { image in
-              image
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(width: 30, height: 30)
-                .clipShape(Circle())
-            } placeholder: {
-              Color.gray
-                .frame(width: 30, height: 30)
-                .clipShape(Circle())
-            }
-            
-            Text("by \(vm.detailData!.creator.username)")
-            
-            Spacer()
-          } //:HStack
-          .padding(.top, 20)
+          creatorView
           
           // MARK: Image
           
@@ -63,63 +142,36 @@ struct RecipeExtendedScreen: View {
           
           // MARK: Description
           
-          Spacer(minLength: 20)
-          
-          Text("About")
-            .font(.title2)
-          Text(vm.detailData?.description ?? "")
-            .font(.body)
+          descriptionView
           
           // MARK: Ingredient
           
+          ingredientSectionView
+          
+          // MARK: Method
+          
           Spacer(minLength: 20)
           
-          Text("Ingredient")
+          Text("Method")
             .font(.title2)
           
-          Spacer(minLength: 16)
-          
-          HStack {
-            Button {
-              vm.minusServes()
-            } label: {
-              Image(systemName: "minus.circle")
-            }
-            
-            Text("\(vm.serves) serves")
-            
-            Button {
-              vm.plusServes()
-            } label: {
-              Image(systemName: "plus.circle")
-            }
+          if !vm.methodHeading.isEmpty {
+            Text(vm.methodHeading)
+              .font(.title3)
+              .padding(.top, 12)
           }
           
-          ForEach(vm.ingredients) { ingredientType in
-            switch ingredientType {
-            case .heading(let heading):
-              Text(heading)
+          ForEach(Array(vm.methods.enumerated()), id: \.offset) { index, element in
+            Group {
+              Text("Step \(index + 1)")
                 .font(.headline)
                 .padding(.top, 12)
-            case .ingredient(let data):
-              HStack {
-                // Placeholder Imgae
-                Color.gray
-                  .frame(width: 30, height: 30)
-                  .clipShape(Circle())
-                
-                VStack(alignment: .leading) {
-                  if data.rawProduct != nil {
-                    Text("\(String(format: "%.1f", getQuantityOfGredient(originalQuantity: data.quantity ?? 0.0))) \(data.unit ?? "") \(data.productModifier ?? "") \(data.rawProduct ?? "")")
-                    Text(data.preparationNotes ?? "")
-                      .font(.footnote)
-                  } else {
-                    Text(data.rawText ?? "")
-                  }
-                }
-              }
+              Text(element)
+                .padding(.top, 8)
             }
           }
+          
+          tagSection
           
         } //:VStack
         .padding(.horizontal, 20)
